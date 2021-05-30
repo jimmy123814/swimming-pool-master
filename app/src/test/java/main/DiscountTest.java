@@ -15,6 +15,12 @@ public class DiscountTest {
 			Discount discount = new Discount(identity, dateTime);
 			Assertions.assertEquals(0.8, discount.getDiscount());
 		}
+		@Test
+		public void testAgeHasDiscount1() throws Throwable {
+			Identity identity = new Identity(61, false, false);
+			Discount discount = new Discount(identity, dateTime);
+			Assertions.assertEquals(0.8, discount.getDiscount());
+		}
 
 		@Test
 		public void testAgeLessThan() throws Throwable {
@@ -84,7 +90,7 @@ public class DiscountTest {
 		}
 		@Test
 		public void testBusiness4() throws Throwable {
-			String dateTime = "2021-05-26 週三 -1:00:00";
+			String dateTime = "2021-05-26 週三 -1:-1:00";
 			Identity identity = new Identity(25, false, false);
 			try {
 				new Discount(identity, dateTime);
@@ -117,4 +123,5 @@ public class DiscountTest {
 		}
 		
 	}
+
 }
