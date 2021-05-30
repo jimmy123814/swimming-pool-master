@@ -89,7 +89,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		public void testBusiness4() throws Throwable {
+		public void testBusiness5() throws Throwable {
 			String dateTime = "2021-05-26 週三 22:30:00";
 			Identity identity = new Identity(25, false, false);
 			try {
