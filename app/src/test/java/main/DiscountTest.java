@@ -105,4 +105,16 @@ public class DiscountTest {
 		}
 		
 	}
+	@DisplayName("團體")
+	@Nested
+	class Member {
+		String dateTime = "2021-05-26 週三 14:30:00";
+		@Test
+		public void testgroup() throws Throwable {
+			Identity identity = new Identity(10, false, true);
+			Discount discount = new Discount(identity, dateTime);
+			Assertions.assertEquals(0.7, discount.getDiscount());
+		}
+		
+	}
 }
