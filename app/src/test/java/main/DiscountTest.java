@@ -73,7 +73,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		public void testBusiness2() throws Throwable {
+		public void testBusiness3() throws Throwable {
 			Identity identity = new Identity(25, false, false);
 			Discount discount = new Discount(identity, "2021-05-26 週三 22:00:00");
 			try {
