@@ -6,6 +6,7 @@ pipeline {
             /* when {
                 anyOf {
                     branch 'master'
+		    branch 'swimming'
                     branch 'dev'
                 }
             } */
