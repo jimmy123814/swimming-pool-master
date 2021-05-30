@@ -82,5 +82,27 @@ public class DiscountTest {
 				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
 			}
 		}
+		@Test
+		public void testBusiness4() throws Throwable {
+			String dateTime = "2021-05-26 週三 -1:00:00";
+			Identity identity = new Identity(25, false, false);
+			try {
+				new Discount(identity, dateTime);
+			} catch (Throwable exception) {
+				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
+			}
+		}
+	}
+	@DisplayName("會員")
+	@Nested
+	class Member {
+		String dateTime = "2021-05-26 週三 14:30:00";
+		@Test
+		public void testAgeHasDiscount() throws Throwable {
+			Identity identity = new Identity(10, true, false);
+			Discount discount = new Discount(identity, dateTime);
+			Assertions.assertEquals(0.5, discount.getDiscount());
+		}
+		
 	}
 }
