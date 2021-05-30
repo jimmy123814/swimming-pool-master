@@ -25,6 +25,15 @@ public class DiscountTest {
 				Assertions.assertEquals("Your age is too young.", exception.getMessage());
 			}
 		}
+		@Test
+		public void testAgemoreThan() throws Throwable {
+			Identity identity = new Identity(76, false, true);
+			try {
+				new Discount(identity, dateTime);
+			} catch (Throwable exception) {
+				Assertions.assertEquals("Your age doesn't meet the requirements.", exception.getMessage());
+			}
+		}
 	}
 
 	@DisplayName("營業與非營業時間")
