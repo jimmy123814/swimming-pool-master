@@ -54,8 +54,8 @@ public class DiscountTest {
 		}
 		@Test
 		public void testBusiness1() throws Throwable {
+			String dateTime = "2021-05-26 週三 04:30:00";
 			Identity identity = new Identity(25, false, false);
-			Discount discount = new Discount(identity, "2021-05-26 週三 04:30:00");
 			try {
 				new Discount(identity, dateTime);
 			} catch (Throwable exception) {
@@ -64,8 +64,8 @@ public class DiscountTest {
 		}
 		@Test
 		public void testBusiness2() throws Throwable {
+			String dateTime = "2021-05-26 週三 23:30:00";
 			Identity identity = new Identity(25, false, false);
-			Discount discount = new Discount(identity, "2021-05-26 週三 23:30:00");
 			try {
 				new Discount(identity, dateTime);
 			} catch (Throwable exception) {
@@ -74,8 +74,8 @@ public class DiscountTest {
 		}
 		@Test
 		public void testBusiness3() throws Throwable {
+			String dateTime = "2021-05-26 週三 22:00:00";
 			Identity identity = new Identity(25, false, false);
-			Discount discount = new Discount(identity, "2021-05-26 週三 22:00:00");
 			try {
 				new Discount(identity, dateTime);
 			} catch (Throwable exception) {
