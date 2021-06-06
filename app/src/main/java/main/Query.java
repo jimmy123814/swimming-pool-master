@@ -5,6 +5,10 @@ import java.lang.reflect.Method;
 import java.util.logging.Logger; 
 public class Query {
 	
+	
+	private Query() {
+		throw new IllegalStateException("Utility class");
+	}
 
     public static int queryAge() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String tipMessage = "How old are you?";
