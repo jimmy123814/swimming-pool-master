@@ -2,8 +2,13 @@ package main;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+import java.util.logging.Logger; 
 public class Query {
+	
+	
+	private StringUtils() { 
+		throw new IllegalStateException("Utility class"); 
+	} 
 
     public static int queryAge() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String tipMessage = "How old are you?";
@@ -14,11 +19,13 @@ public class Query {
     }
 
     public static int checkAge(int age) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+		Logger logger = Logger.getLogger("Query");
+		
         if (age < 3) {
-            System.out.println("Your age is too young.");
+            logger.severe("Your age is too young.");
             queryAge();
         } else if (age > 75) {
-            System.out.println("Your age doesn't meet the requirements.");
+            logger.severe("Your age doesn't meet the requirements.");
             queryAge();
         }
         return age;
