@@ -69,7 +69,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		 void testBusiness2() throws Throwable {
+		 void testovertime() throws Throwable {
 			String dateTime = "2021-05-26 週三 23:30:00";
 			Identity identity = new Identity(25, false, false);
 			try {
@@ -79,7 +79,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		 void testBusiness3() throws Throwable {
+		 void testovertime1() throws Throwable {
 			String dateTime = "2021-05-26 週三 22:00:00";
 			Identity identity = new Identity(25, false, false);
 			try {
@@ -89,7 +89,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		 void testBusiness5() throws Throwable {
+		 void testovertimemin() throws Throwable {
 			String dateTime = "2021-05-26 週三 22:30:00";
 			Identity identity = new Identity(25, false, false);
 			try {
@@ -99,7 +99,7 @@ public class DiscountTest {
 			}
 		}
 		@Test
-		 void testBusiness4() throws Throwable {
+		 void testfalsetime() throws Throwable {
 			String dateTime = "2021-05-26 週三 -1:00:00";
 			Identity identity = new Identity(25, false, false);
 			try {
