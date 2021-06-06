@@ -42,7 +42,7 @@ public class DiscountTest {
 		}
 	}
 
-	@DisplayName("營業與非營業時間")
+	@DisplayName("營業時間折扣")
 	@Nested
 	class DifferentBusinessHours {
 		@Test
@@ -51,15 +51,49 @@ public class DiscountTest {
 			Discount discount = new Discount(identity, "2021-05-26 週三 06:30:00");
 			Assertions.assertEquals(0.8, discount.getDiscount());
 		}
-
 		@Test
 		 void testHaveBusiness() throws Throwable {
 			Identity identity = new Identity(25, false, false);
 			Discount discount = new Discount(identity, "2021-05-26 週三 10:30:00");
 			Assertions.assertEquals(1, discount.getDiscount());
 		}
+	}
+	@DisplayName("分鐘超過營業時間")
+	@Nested
+	class MinBusiness {
+		
 		@Test
-		 void testBusiness1() throws Throwable {
+		 void tesmin() throws Throwable {
+			String dateTime = "2021-05-26 週三 22:30:00";
+			Identity identity = new Identity(25, false, false);
+			try {
+				new Discount(identity, dateTime);
+			} catch (Throwable exception) {
+				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
+			}
+		}
+		
+	}
+	@DisplayName("錯誤的時間格式")
+	@Nested
+	class FalseBusiness {
+		@Test
+		 void testfalsetime() throws Throwable {
+			String dateTime = "2021-05-26 週三 -1:00:00";
+			Identity identity = new Identity(25, false, false);
+			try {
+				new Discount(identity, dateTime);
+			} catch (Throwable exception) {
+				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
+			}
+		}
+		
+	}
+	@DisplayName("過早的營業時間")
+	@Nested
+	class NotBusiness {
+		@Test
+		 void testnotbusiness() throws Throwable {
 			String dateTime = "2021-05-26 週三 04:30:00";
 			Identity identity = new Identity(25, false, false);
 			try {
@@ -68,6 +102,11 @@ public class DiscountTest {
 				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
 			}
 		}
+		
+	}
+	@DisplayName("超過營業時間")
+	@Nested
+	class Over {
 		@Test
 		 void testovertime() throws Throwable {
 			String dateTime = "2021-05-26 週三 23:30:00";
@@ -88,26 +127,7 @@ public class DiscountTest {
 				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
 			}
 		}
-		@Test
-		 void testovertimemin() throws Throwable {
-			String dateTime = "2021-05-26 週三 22:30:00";
-			Identity identity = new Identity(25, false, false);
-			try {
-				new Discount(identity, dateTime);
-			} catch (Throwable exception) {
-				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
-			}
-		}
-		@Test
-		 void testfalsetime() throws Throwable {
-			String dateTime = "2021-05-26 週三 -1:00:00";
-			Identity identity = new Identity(25, false, false);
-			try {
-				new Discount(identity, dateTime);
-			} catch (Throwable exception) {
-				Assertions.assertEquals("Business hours: 05:00-22:00", exception.getMessage());
-			}
-		}
+		
 	}
 	@DisplayName("會員")
 	@Nested
