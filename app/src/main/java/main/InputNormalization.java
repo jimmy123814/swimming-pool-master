@@ -11,7 +11,7 @@ public class InputNormalization {
     public static boolean bool;
     public static int digital;
 
-    public static void regularize(Method method, String type, String tip, String error)
+    public static void regularize(Method method, String type)
            throws InvocationTargetException, IllegalAccessException {
 		Logger logger = Logger.getLogger("InputNormalization");
 		logger.info("tip");
