@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
-
+import java.util.logging.Logger;
 public class InputNormalization {
 
     public static String string;
@@ -13,7 +13,8 @@ public class InputNormalization {
 
     public static void regularize(Method method, String type, String tip, String error)
            throws InvocationTargetException, IllegalAccessException {
-        System.out.println(tip);
+		Logger logger = Logger.getLogger("InputNormalization");
+		logger.info("tip");
         Scanner input = new Scanner(System.in);
         String inputWord = input.nextLine();
         switch (type) {
@@ -22,8 +23,7 @@ public class InputNormalization {
                 try {
                     number = Integer.parseInt(inputWord);
                 } catch (NumberFormatException exception) {
-                    exception.printStackTrace();
-                    System.out.println(error);
+                    logger.severe("error！");
                     method.invoke(null);
                 }
                 digital = number;
@@ -41,8 +41,7 @@ public class InputNormalization {
                         throw new IOException();
                     }
                 } catch (IOException exception) {
-                    exception.printStackTrace();
-                    System.out.println(error);
+					logger.severe("error！");
                     method.invoke(null);
                 }
 				break;
