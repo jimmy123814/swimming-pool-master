@@ -11,10 +11,10 @@ public class InputNormalization {
     public static boolean bool;
     public static int digital;
 
-    public static void regularize(Method method, String type)
+    public static void regularize(Method method, String type, String tip, String error)
            throws InvocationTargetException, IllegalAccessException {
 		Logger logger = Logger.getLogger("InputNormalization");
-		logger.info("tip");
+		logger.info(tip);
         Scanner input = new Scanner(System.in);
         String inputWord = input.nextLine();
         switch (type) {
@@ -23,7 +23,7 @@ public class InputNormalization {
                 try {
                     number = Integer.parseInt(inputWord);
                 } catch (NumberFormatException exception) {
-                    logger.severe("error！");
+                    logger.severe(error);
                     method.invoke(null);
                 }
                 digital = number;
@@ -41,7 +41,7 @@ public class InputNormalization {
                         throw new IOException();
                     }
                 } catch (IOException exception) {
-					logger.severe("error！");
+					logger.severe(error);
                     method.invoke(null);
                 }
 				break;
