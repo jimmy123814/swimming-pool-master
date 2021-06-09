@@ -3,8 +3,8 @@ package main;
 import java.util.logging.Logger;
 
 public class Payment {
-    public static final int weekdayCharge = 200;
-    public static final int weekendCharge = 250;
+    public static final int WEEKDAYCHARGE = 200;
+    public static final int WEEKENDCHARGE = 250;
     private int money;
     private double totalCharge;
 	Logger logger = Logger.getLogger("Payment");
@@ -19,11 +19,11 @@ public class Payment {
             case "週三":
             case "週四":
             case "週五":
-                money = weekdayCharge;
+                money = WEEKDAYCHARGE;
                 break;
             case "週六":
             case "週日":
-                money = weekendCharge;
+                money = WEEKENDCHARGE;
                 break;
 			default:
 				break;	
