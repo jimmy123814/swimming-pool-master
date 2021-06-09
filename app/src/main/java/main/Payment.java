@@ -1,15 +1,17 @@
 package main;
 
-public class Payment {
-    public static int weekdayCharge = 200;
-    public static int weekendCharge = 250;
-    public int money;
-    public double totalCharge;
+import java.util.logging.Logger;
 
+public class Payment {
+    public static final int weekdayCharge = 200;
+    public static final int weekendCharge = 250;
+    private int money;
+    private double totalCharge;
+	Logger logger = Logger.getLogger("Payment");
     public Payment(Discount discount, String dateTime) {
 
         String week = InputNormalization.extractWeek(dateTime);
-        System.out.println(week);
+        logger.info(week);
 
         switch (week) {
             case "週一":
