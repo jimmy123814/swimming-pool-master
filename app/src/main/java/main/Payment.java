@@ -22,7 +22,6 @@ public class Payment {
                 money = WEEKDAYCHARGE;
                 break;
             case "週六":
-            case "週日":
                 money = WEEKENDCHARGE;
                 break;
 			default:
