@@ -27,7 +27,7 @@ pipeline {
 		}
 		steps{
 			sh '''./gradlew sonarqube \
-				-Dsonar.projectKey=D0676614_swimming_pool \
+				-Dsonar.projectkey=D0676614_swimming_pool \
 				-Dsonar.host.url=http://140.134.26.54:10990 \
 				-Dsonar.login=$SONAR_TOKEN
 			 '''
